@@ -13,6 +13,10 @@ redrad, bluerad, bulrad = 30, 60, 15
 blcircle = pygame.Vector2(size[0] / 2, size[1])
 redcircle = pygame.Vector2(r.randint(normalsize, size[0]-normalsize), r.randint(normalsize, size[1]-normalsize))
 coef_speed = 7
+forback = (255, 255, 255)
+red = (255, 0, 0)
+blue = (0, 0, 255)
+cyan = (0, 255, 255)
 
 bullet = None
 speed = None
@@ -32,11 +36,11 @@ while True:
             bullet = None
             redcircle = pygame.Vector2(r.randint(normalsize, size[0]-normalsize), r.randint(normalsize, size[1]-normalsize))
 
-    screen.fill((255, 255, 255))
-    pygame.draw.circle(screen, (255, 0, 0), redcircle, redrad)
-    pygame.draw.circle(screen, (0, 255, 255), blcircle, bluerad)
+    screen.fill(forback)
+    pygame.draw.circle(screen, red, redcircle, redrad)
+    pygame.draw.circle(screen, cyan, blcircle, bluerad)
     if bullet is not None:
-        pygame.draw.circle(screen, (0, 0, 255), bullet, bulrad)
+        pygame.draw.circle(screen, blue, bullet, bulrad)
     text = font.render("Пушка", True, (0, 0, 0))
     screen.blit(text, (size[0]/2 - 40, size[1] - normalsize))
     pygame.display.flip()
